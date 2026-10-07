@@ -1,0 +1,91 @@
+{
+  "minVersion": "0.1",
+  "class": "DepictionTabView",
+  "tintColor": "#58a6ff",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionScreenshotsView",
+          "itemCornerRadius": 8,
+          "itemSize": "{160, 346}",
+          "screenshots": [
+            {
+              "url": "https://dev.rtrdd.fyi/screenshots/dev.rtrdd.toprow/1.jpg",
+              "accessibilityText": "Screenshot 1"
+            },
+            {
+              "url": "https://dev.rtrdd.fyi/screenshots/dev.rtrdd.toprow/2.jpg",
+              "accessibilityText": "Screenshot 2"
+            },
+            {
+              "url": "https://dev.rtrdd.fyi/screenshots/dev.rtrdd.toprow/3.jpg",
+              "accessibilityText": "Screenshot 3"
+            },
+            {
+              "url": "https://dev.rtrdd.fyi/screenshots/dev.rtrdd.toprow/4.jpg",
+              "accessibilityText": "Screenshot 4"
+            },
+            {
+              "url": "https://dev.rtrdd.fyi/screenshots/dev.rtrdd.toprow/5.jpg",
+              "accessibilityText": "Screenshot 5"
+            }
+          ]
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Description"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**TopRow** puts a number row on top of the stock iOS keyboard, so you stop switching to 123 for every digit.\n\n- **Letters:** `1 2 3 4 5 6 7 8 9 0`\n- **Shift / Caps Lock:** `! @ # $ % ^ & * ( )`\n- **123 and #+=:** an extra `! @ # $ % ^ & * ( )` row under the digits\n\n**Everything is adjustable, and it all applies live (no respring):**\n\n- Edit every row: 1 to 10 keys each, up to 8 characters per key (emoji and `.com` work too)\n- **Lowercase Row When Auto-Capitalized:** keep the digits at the start of a sentence; symbols only with Shift or Caps Lock\n- **Symbol Hints:** each number key shows its Shift symbol in the corner\n- **Key Height** (80–130%) and **Bottom Area** (60–130%) sliders, with exact-number entry\n- Landscape on or off, with optional separate landscape rows\n- Rename the 123 and ABC keys\n- Turn the row off per app, or for email, web and Twitter fields\n- Preview field right in Settings\n\n**Works where you type:** apps, Safari, password fields, share sheets, and password managers' AutoFill sheets. Number, phone and passcode pads are left alone, and the Bottom Area slider plays nicely with dock bars from other tweaks.\n\n**Compatibility:** iPhone on rootless jailbreaks, iOS 15 and later. Developed and tested on iOS 17.3.1 with Dopamine; reports from other versions are welcome. Does nothing on iPad, whose keyboards already put digits on their keys. Uninstall any other number-row tweak before installing: two of them on the same keyboard means overlapping rows and layout bugs.\n\n**Free and open source** under the MIT license: [github.com/U-rTrDD-fyi/TopRow](https://github.com/U-rTrDD-fyi/TopRow). If something breaks, use **Share Diagnostics** in TopRow's settings and attach the file to an issue."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Information"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "1.0.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Architecture",
+          "text": "iphoneos-arm64"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Section",
+          "text": "Tweaks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Developer",
+          "text": "U-rTrDD-fyi"
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source Code",
+          "action": "https://github.com/U-rTrDD-fyi/TopRow",
+          "openExternal": "true"
+        }
+      ]
+    },
+    {
+      "tabname": "Changelog",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**1.0.0**\n\n- Initial release."
+        }
+      ]
+    }
+  ]
+}

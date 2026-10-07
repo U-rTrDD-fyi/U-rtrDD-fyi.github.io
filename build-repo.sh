@@ -10,6 +10,7 @@
 # Single source of truth = each deb's own control fields. Optional richer text:
 #   meta/<pkg>.md            -> long description (markdown) for the depiction
 #   meta/<pkg>.changelog.md  -> changelog (markdown)
+#   screenshots/<pkg>/*.png|jpg -> screenshot strip at the top of the depiction (sorted by name)
 # If those files are absent, the deb's Description / Version are used.
 #
 # Requires: dpkg-scanpackages, dpkg-deb, python3, bzip2, gzip; optional xz, zstd, gpg.
@@ -31,6 +32,7 @@ DEB_DIR="debs"
 DEPICT_DIR="depictions"
 ICON_DIR="icons"
 META_DIR="meta"
+SHOT_DIR="screenshots"
 INDEX="index.html"
 EXTRA_OVERRIDE=".extra-override"   # generated; safe to gitignore
 # ---------------------------------------------------------------------------
@@ -54,7 +56,7 @@ md5h()   { if command -v md5sum >/dev/null 2>&1; then md5sum "$1" | awk '{print 
 if command -v python3 >/dev/null 2>&1; then
     echo "==> generating depictions + index rows"
     BASE_URL="$BASE_URL" TINT="$TINT" DEB_DIR="$DEB_DIR" DEPICT_DIR="$DEPICT_DIR" \
-    ICON_DIR="$ICON_DIR" META_DIR="$META_DIR" INDEX="$INDEX" EXTRA_OVERRIDE="$EXTRA_OVERRIDE" \
+    ICON_DIR="$ICON_DIR" META_DIR="$META_DIR" SHOT_DIR="$SHOT_DIR" INDEX="$INDEX" EXTRA_OVERRIDE="$EXTRA_OVERRIDE" \
     python3 - <<'PY'
 import os, glob, json, html, subprocess, re
 
@@ -64,6 +66,7 @@ debdir = os.environ["DEB_DIR"]
 depdir = os.environ["DEPICT_DIR"]
 icodir = os.environ["ICON_DIR"]
 metadir= os.environ["META_DIR"]
+shotdir= os.environ["SHOT_DIR"]
 index  = os.environ["INDEX"]
 extra  = os.environ["EXTRA_OVERRIDE"]
 
@@ -151,6 +154,15 @@ for deb in debs:
     else:
         clog_md = f"**{ver}**\n\n- Released."
 
+    # screenshots: screenshots/<pkg>/*, sorted by file name
+    sp = os.path.join(shotdir, pkg)
+    shots = sorted(f for f in os.listdir(sp) if f.lower().endswith((".png", ".jpg", ".jpeg"))) if os.path.isdir(sp) else []
+    shot_views = [{"class": "DepictionScreenshotsView", "itemCornerRadius": 8, "itemSize": "{160, 346}",
+                   "screenshots": [{"url": f"{base}/{shotdir}/{pkg}/{s}", "accessibilityText": f"Screenshot {i + 1}"}
+                                   for i, s in enumerate(shots)]}] if shots else []
+    shots_html = ('<div class="shots">' + "".join(f'<img src="{base}/{shotdir}/{pkg}/{html.escape(s)}" alt="Screenshot {i + 1}">'
+                                                  for i, s in enumerate(shots)) + "</div>") if shots else ""
+
     # ---- Sileo native depiction (JSON) ----
     info_rows = [
         {"class": "DepictionTableTextView", "title": "Version",      "text": ver},
@@ -169,6 +181,7 @@ for deb in debs:
         "tintColor": tint,
         "tabs": [
             {"tabname": "Details", "class": "DepictionStackView", "views": [
+                *shot_views,
                 {"class": "DepictionSubheaderView", "title": "Description"},
                 {"class": "DepictionMarkdownView", "markdown": body_md},
                 {"class": "DepictionSeparatorView"},
@@ -209,7 +222,10 @@ pre code{{background:none;padding:0;font-size:.85rem}}a{{color:var(--accent);tex
 hr{{border:none;border-top:1px solid var(--border);margin:20px 0}}table{{width:100%;border-collapse:collapse}}
 td{{padding:8px 0;border-bottom:1px solid var(--border);vertical-align:top}}td.k{{color:var(--muted);width:38%}}
 td.v{{font-family:var(--mono);font-size:.9rem}}table tr:last-child td{{border-bottom:none}}
+.shots{{display:flex;gap:10px;overflow-x:auto;margin:0 0 16px;-webkit-overflow-scrolling:touch}}
+.shots img{{height:346px;border-radius:8px;flex:none}}
 </style></head><body>
+{shots_html}
 <h2>Description</h2>
 {md_to_html(body_md)}
 <hr>
