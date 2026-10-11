@@ -318,6 +318,7 @@ emit_hashes() {  # $1 = section header, $2 = hasher fn name
     echo "Suite: stable"
     echo "Version: 1.0"
     echo "Codename: ios"
+    echo "Date: $(LC_ALL=C date -u '+%a, %d %b %Y %H:%M:%S UTC')"   # apt warns "Invalid 'Date' entry" without it
     echo "Architectures: $ARCHS"
     echo "Components: main"
     echo "Description: $REPO_DESC"
