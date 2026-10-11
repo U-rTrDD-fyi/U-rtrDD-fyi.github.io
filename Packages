@@ -22,16 +22,16 @@ Name: ipadecrypt-cli
 SileoDepiction: https://dev.rtrdd.fyi/depictions/dev.rtrdd.ipadecrypt-cli.json
 
 Package: dev.rtrdd.toprow
-Version: 1.0.0
+Version: 1.0.1
 Architecture: iphoneos-arm64
 Maintainer: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
-Installed-Size: 492
+Installed-Size: 524
 Depends: mobilesubstrate, firmware (>= 15.0), preferenceloader, com.opa334.altlist
-Filename: debs/dev.rtrdd.toprow_1.0.0_iphoneos-arm64.deb
-Size: 55544
-MD5sum: f4bd8b8947dd6f0af82fd4a6da45d8df
-SHA1: 93a53c00fb825ddbdaa15a689768a89b33804970
-SHA256: 8603c1f032f6233808a8b2e1449e611db70640695d35ebff3163562273cfc565
+Filename: debs/dev.rtrdd.toprow_1.0.1_iphoneos-arm64.deb
+Size: 61642
+MD5sum: 2bd8803fee97a8d7dc2b0e5b2f94f222
+SHA1: 897c08085224810c4513ef942d25879845291531
+SHA256: c09a6050155a7285b2ad04b6cc2741b2a2dbd146a2851a39849a8a68d71008a3
 Section: Tweaks
 Homepage: https://github.com/U-rTrDD-fyi/TopRow
 Description: A number & symbol row for the stock keyboard
