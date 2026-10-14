@@ -22,23 +22,25 @@ Name: ipadecrypt-cli
 SileoDepiction: https://dev.rtrdd.fyi/depictions/dev.rtrdd.ipadecrypt-cli.json
 
 Package: dev.rtrdd.toprow
-Version: 1.0.1
+Version: 2.0.0
 Architecture: iphoneos-arm64
 Maintainer: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
-Installed-Size: 524
+Installed-Size: 632
 Depends: mobilesubstrate, firmware (>= 15.0), preferenceloader, com.opa334.altlist
-Filename: debs/dev.rtrdd.toprow_1.0.1_iphoneos-arm64.deb
-Size: 61642
-MD5sum: 2bd8803fee97a8d7dc2b0e5b2f94f222
-SHA1: 897c08085224810c4513ef942d25879845291531
-SHA256: c09a6050155a7285b2ad04b6cc2741b2a2dbd146a2851a39849a8a68d71008a3
+Filename: debs/dev.rtrdd.toprow_2.0.0_iphoneos-arm64.deb
+Size: 95024
+MD5sum: 7051a141e82272984a006accf3ef2fa0
+SHA1: 25af04af138878b0117715f883ccb574604f7ea6
+SHA256: f061c6a2643d2d536c5f603b3a941da94ffda3c011a456bbf649496222199bbf
 Section: Tweaks
 Homepage: https://github.com/U-rTrDD-fyi/TopRow
-Description: A number & symbol row for the stock keyboard
- Adds a fifth row to the stock iOS keyboard: 1-0 on letters, !@#$%^&*() with
- shift or caps lock, and an extra symbol row on 123. Every row is editable,
- with key height, bottom area, landscape, per-app and per-keyboard-type
- options, all applied live. iPhone only. Free and open source.
+Description: A number row on top, and every key your way
+ Adds a number row to the top of the stock iOS keyboard: 1-0 on letters,
+ !@#$%^&*() with shift or caps lock, and an extra symbol row on 123. Every
+ other key is yours too: retype, add, remove or reorder the keys on the
+ letters, Shift, 123 and #+= pages. Key height, bottom area, landscape,
+ per-app and per-keyboard-type options, all applied live. iPhone only.
+ Free and open source.
 Author: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
 Depiction: https://dev.rtrdd.fyi/depictions/dev.rtrdd.toprow.html
 Icon: https://dev.rtrdd.fyi/icons/dev.rtrdd.toprow.png
