@@ -1,21 +1,21 @@
 Package: dev.rtrdd.ipadecrypt-cli
 Version: 1.0.0
 Architecture: iphoneos-arm64
-Maintainer: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
+Maintainer: aay <275768457+aayy-dev@users.noreply.github.com>
 Depends: firmware (>= 15.0), bash, unzip, odcctools
 Filename: debs/dev.rtrdd.ipadecrypt-cli_1.0.0_iphoneos-arm64.deb
-Size: 30868
-MD5sum: 67a8688f19e59d61383e9814da46ce89
-SHA1: 6c24116a58357cb2c02c13e273af78934535710d
-SHA256: 588d5bb850394480c476c1682c5f35fd28733ad3ab332f3844656e172244f9c5
+Size: 30864
+MD5sum: e93f46be472f65635ff621c01e6b8146
+SHA1: a5a9f85504b0d82442120d5f58980c03c961e7b9
+SHA256: aed8501dcd11f5686cc4bd3cf63ed2766bb3e2b2274a9f839a63ca545eea0969
 Section: Utilities
 Priority: optional
-Homepage: https://github.com/U-rTrDD-fyi
+Homepage: https://github.com/aayy-dev
 Description: CLI ipa decryption tool
  On-device IPA decryptor for jailbroken iOS. Dumps decrypted Mach-O
  images (main executable, frameworks, and appex plug-ins) from an
  installed app and repackages them into a plaintext .ipa.
-Author: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
+Author: aay <275768457+aayy-dev@users.noreply.github.com>
 Depiction: https://dev.rtrdd.fyi/depictions/dev.rtrdd.ipadecrypt-cli.html
 Icon: https://dev.rtrdd.fyi/icons/dev.rtrdd.ipadecrypt-cli.png
 Name: ipadecrypt-cli
@@ -24,16 +24,16 @@ SileoDepiction: https://dev.rtrdd.fyi/depictions/dev.rtrdd.ipadecrypt-cli.json
 Package: dev.rtrdd.toprow
 Version: 2.0.0
 Architecture: iphoneos-arm64
-Maintainer: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
+Maintainer: aay <275768457+aayy-dev@users.noreply.github.com>
 Installed-Size: 632
 Depends: mobilesubstrate, firmware (>= 15.0), preferenceloader, com.opa334.altlist
 Filename: debs/dev.rtrdd.toprow_2.0.0_iphoneos-arm64.deb
-Size: 95024
-MD5sum: 7051a141e82272984a006accf3ef2fa0
-SHA1: 25af04af138878b0117715f883ccb574604f7ea6
-SHA256: f061c6a2643d2d536c5f603b3a941da94ffda3c011a456bbf649496222199bbf
+Size: 95034
+MD5sum: 5cf18af2f38d699d2ee7c391a3b4fbab
+SHA1: 60418a897077cd5f9e97b7e394eac2a38657c10e
+SHA256: f196cff5f2690fbe590720acf3327a42bdb1cf625cd6447a8c7f743f3614bc66
 Section: Tweaks
-Homepage: https://github.com/U-rTrDD-fyi/TopRow
+Homepage: https://github.com/aayy-dev/TopRow
 Description: A number row on top, and every key your way
  Adds a number row to the top of the stock iOS keyboard: 1-0 on letters,
  !@#$%^&*() with shift or caps lock, and an extra symbol row on 123. Every
@@ -41,7 +41,7 @@ Description: A number row on top, and every key your way
  letters, Shift, 123 and #+= pages. Key height, bottom area, landscape,
  per-app and per-keyboard-type options, all applied live. iPhone only.
  Free and open source.
-Author: U-rTrDD-fyi <275768457+U-rTrDD-fyi@users.noreply.github.com>
+Author: aay <275768457+aayy-dev@users.noreply.github.com>
 Depiction: https://dev.rtrdd.fyi/depictions/dev.rtrdd.toprow.html
 Icon: https://dev.rtrdd.fyi/icons/dev.rtrdd.toprow.png
 Name: TopRow

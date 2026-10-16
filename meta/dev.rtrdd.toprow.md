@@ -26,4 +26,4 @@
 
 **Compatibility:** iPhone on rootless jailbreaks, iOS 15 and later. Developed and tested on iOS 17.3.1 with Dopamine; reports from other versions are welcome. The Keys page changes the US English (QWERTY) layout; other languages keep their own keys. Does nothing on iPad, whose keyboards already put digits on their keys. Uninstall any other number-row tweak before installing: two of them on the same keyboard means overlapping rows and layout bugs.
 
-**Free and open source** under the MIT license: [github.com/U-rTrDD-fyi/TopRow](https://github.com/U-rTrDD-fyi/TopRow). If something breaks, use **Share Diagnostics** in TopRow's settings and attach the file to an issue.
+**Free and open source** under the MIT license: [github.com/aayy-dev/TopRow](https://github.com/aayy-dev/TopRow). If something breaks, use **Share Diagnostics** in TopRow's settings and attach the file to an issue.

@@ -40,12 +40,12 @@
         {
           "class": "DepictionTableTextView",
           "title": "Developer",
-          "text": "U-rTrDD-fyi"
+          "text": "aay"
         },
         {
           "class": "DepictionTableButtonView",
           "title": "Source Code",
-          "action": "https://github.com/U-rTrDD-fyi",
+          "action": "https://github.com/aayy-dev",
           "openExternal": "true"
         }
       ]
