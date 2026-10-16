@@ -47,13 +47,13 @@ Where they're used on dev.rtrdd.fyi: `CydiaIcon.png` (256), `CydiaIcon@2x.png` (
 
 ## Construction
 
-All values live at the top of `build_brand.py` (`MONOGRAM`, `WORDMARK`, `COLORS`, `RADIUS`).
+All values live at the top of `build_brand.py` (`MONOGRAM`, `WORDMARK`, `COLORS`, `RADIUS`, `OPTICAL`).
 
 - Typeface: Inter Display Black (`Inter_28pt-Black.ttf`, SIL Open Font License, https://rsms.me/inter)
 - Letter spacing: -0.09 em; letters are measured by advance width
 - Slant: 6° (letters only; the dot stays round and follows the slanted baseline)
 - Dot: 0.42 × x-height (monogram) / 0.52 × x-height (wordmark), dipping 30% below the baseline
-- Mark width: 58% (monogram) / 74% (wordmark) of the tile; x-height band centred at 45% of tile height
+- Mark width: 58% (monogram) / 74% (wordmark) of the tile (the banner uses 44% of its width)
 - Tile corner radius: 23.5% of tile size
 - Optical centring: the mark is placed 60% of the way from its bounding-box centre to its centre of visual mass (`OPTICAL`), so it looks centred in tiles, circles and the banner
 
