@@ -34,6 +34,7 @@ MONOGRAM = dict(text="a", track=-0.09, width=0.58, slant=6,
 WORDMARK = dict(text="aay", track=-0.09, width=0.74, slant=6,
                 dot_size=0.52, dot_gap=0.02, dot_dip=0.30, center_y=0.45)
 RADIUS = 0.235             # tile corner radius, fraction of tile size
+OPTICAL = 0.6              # optical centring: 0 = centre the bounding box, 1 = centre the visual mass
 DEFAULT_FONT = r"C:\Windows\Fonts\Inter_28pt-Black.ttf"   # Inter Display Black (OFL)
 
 
@@ -120,11 +121,37 @@ def mark_body(font, spec, W, H, fg, width_frac=None, dx=0.0, dy=0.0):
             f'<circle id="dot" cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="{COLORS["accent"]}"/></g>'), ink
 
 
+def optical_offset(font, spec, W, H, width_frac=None):
+    """Shift that puts the mark's optical centre on the canvas centre.
+
+    The big letter carries most of the visual weight and the dot very little, so a
+    box-centred mark looks off to the left. Blend the box centre towards the
+    alpha-weighted centre of mass by OPTICAL and centre that point instead.
+    """
+    body, _ = mark_body(font, spec, W, H, "#FFFFFF", width_frac)
+    n = 512
+    sc = n / max(W, H)
+    a = Image.open(io.BytesIO(bytes(resvg_py.svg_to_bytes(
+        svg_string=svg_doc(W, H, body, "probe"), width=round(W * sc), height=round(H * sc),
+        skip_system_fonts=True)))).getchannel("A")
+    x0, y0, x1, y1 = a.getbbox()
+    px, sx, sy, tot = a.load(), 0, 0, 0
+    for y in range(y0, y1):
+        for x in range(x0, x1):
+            v = px[x, y]
+            if v:
+                sx += x * v; sy += y * v; tot += v
+    tx = ((x0 + x1) / 2) * (1 - OPTICAL) + (sx / tot) * OPTICAL
+    ty = ((y0 + y1) / 2) * (1 - OPTICAL) + (sy / tot) * OPTICAL
+    return W / 2 - tx / sc, H / 2 - ty / sc
+
+
 def tile(font, spec, S=1024, shape="rounded", title="aay"):
     bg = {"rounded": f'<rect width="{S}" height="{S}" rx="{fmt(RADIUS * S)}" fill="url(#bg)"/>',
           "square": f'<rect width="{S}" height="{S}" fill="url(#bg)"/>',
           "circle": f'<circle cx="{S / 2}" cy="{S / 2}" r="{S / 2}" fill="url(#bg)"/>'}[shape]
-    body, _ = mark_body(font, spec, S, S, COLORS["fg"])
+    dx, dy = optical_offset(font, spec, S, S)
+    body, _ = mark_body(font, spec, S, S, COLORS["fg"], dx=dx, dy=dy)
     return svg_doc(S, S, defs() + bg + body, title)
 
 
@@ -140,7 +167,8 @@ def transparent(font, spec, fg, title, pad=0.08):
 
 
 def banner(font, spec, W=1280, H=640, title="aay"):
-    body, _ = mark_body(font, {**spec, "center_y": 0.47}, W, H, COLORS["fg"], width_frac=0.44)
+    dx, dy = optical_offset(font, spec, W, H, width_frac=0.44)
+    body, _ = mark_body(font, spec, W, H, COLORS["fg"], width_frac=0.44, dx=dx, dy=dy)
     return svg_doc(W, H, defs() + f'<rect width="{W}" height="{H}" fill="url(#bg)"/>' + body, title)
 
 

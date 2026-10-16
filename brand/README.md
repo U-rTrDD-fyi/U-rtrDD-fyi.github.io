@@ -55,6 +55,7 @@ All values live at the top of `build_brand.py` (`MONOGRAM`, `WORDMARK`, `COLORS`
 - Dot: 0.42 × x-height (monogram) / 0.52 × x-height (wordmark), dipping 30% below the baseline
 - Mark width: 58% (monogram) / 74% (wordmark) of the tile; x-height band centred at 45% of tile height
 - Tile corner radius: 23.5% of tile size
+- Optical centring: the mark is placed 60% of the way from its bounding-box centre to its centre of visual mass (`OPTICAL`), so it looks centred in tiles, circles and the banner
 
 ## Editing
 
